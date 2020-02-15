@@ -7,9 +7,9 @@ window.addEventListener("load", () => {
 
     let drawing = false;
 
-    function startingMousePosition(e){
+    function startingPointerPosition(e){
         drawing = true;
-        mouseDraw(e);
+        pointerDraw(e);
     }
 
     function startingTouchPosition(e){
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
         context.beginPath();
     }
 
-    function mouseDraw(e){
+    function pointerDraw(e){
         if(!drawing){
             return;
         }
@@ -42,15 +42,15 @@ window.addEventListener("load", () => {
         context.lineWidth = 10;
         context.lineCap = "round";
 
-        context.lineTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+        context.lineTo(e.changedTouches[0].clientX - canvas.offsetLeft, e.changedTouches[0].clientY - canvas.offsetTop);
         context.stroke();
         context.beginPath();
-        context.moveTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+        context.moveTo(e.changedTouches[0].clientX - canvas.offsetLeft, e.changedTouches[0].clientY - canvas.offsetTop);
     }
 
-    canvas.addEventListener('mousedown', startingMousePosition);
-    canvas.addEventListener('mouseup', endingPosition);
-    canvas.addEventListener('mousemove', mouseDraw);
+    canvas.addEventListener('pointerdown', startingPointerPosition);
+    canvas.addEventListener('pointerup', endingPosition);
+    canvas.addEventListener('pointermove', pointerDraw);
     canvas.addEventListener('touchstart', startingTouchPosition);
     canvas.addEventListener('touchend', endingPosition);
     canvas.addEventListener('touchmove', touchDraw);
