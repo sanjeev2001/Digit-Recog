@@ -1,31 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAFS Sketchpad</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Handwriting TensorFlow Model</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Import TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <!-- Import tfjs-vis -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+
+    <!-- Import the data file -->
+    <script src="data.js" type="module"></script>
+
+    <!-- <script src="sketch/scripts/sketchpad.js"></script> -->
+    <!-- Import the main script file -->
+    <script src="script.js" type="module"></script>
+
+    <h1 class="header">Digit Recog</h1>
+
 </head>
+
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <!-- <a href="#!" class="brand-logo">RAFS SketchPad</a> -->
-          <p>Value: <span id="demo"></span></p>
-          <ul class="right">
-            <li><a id="undo">Undo</a></li>
-            <li><a id="clear">Clear</a></li>
-          </ul>
-        </div>
-        <div class="slideContainer">
-            <input class="slider" type="range" min="5" max="30" value="10" id="myRange">
-            
-        </div>
-    </nav>
-    <div>
-        <canvas id="canvas" width="1518"></canvas>
+
+    <div class="slideContainer">
+        <input class="slider" type="range" min="5" max="30" value="10" id="myRange">
     </div>
-    <script src="canvas.js"></script>
+    <button id="predict-button">Predict</button>
+
+        <div class="container mt-5">
+            <!-- <img id="img0" src="/test_images/0.png"  width="100" height="100"> -->
+            <!-- <img id="img1" src="0.png"  width="100" height="100">
+                <img id="img2" src="2.png"  width="100" height="100">
+                <img id="img3" src="3.png"  width="100" height="100">
+                <img id="img4" src="4.png"  width="100" height="100">
+                <img id="img5" src="5.png"  width="100" height="100">
+                <img id="img6" src="6.png"  width="100" height="100">
+                <img id="img7" src="7.png"  width="100" height="100">
+                <img id="img8" src="8.png"  width="100" height="100">
+                <img id="img9" src="9.png"  width="100" height="100"> -->
+            <div  class="column left">
+                <canvas id="canvas"></canvas>
+                <!-- <canvas class="sketchpad" id="sketchpad"><canvas> -->
+            </div>
+            <input id="color-picker" type="color">
+
+            <div class="column right" id="rectangle">
+                <p id="pls">Prediction: <span id="pred"></span></p>
+            </div>
+
+        </div>
+
 </body>
+
 </html>
