@@ -204,10 +204,10 @@ async function showConfusion(model, data) {
     labels.dispose();
 }
 
-let imageArray = new Array();
-for (let i = 0; i < 10; i++) {
-    imageArray[i] = document.getElementById("img" + i.toString());
-}
+// let imageArray = new Array();
+// for (let i = 0; i < 10; i++) {
+//     imageArray[i] = document.getElementById("img" + i.toString());
+// }
 
 let model;
 (async function () {
@@ -220,36 +220,35 @@ let model;
 
 
 $("button").click(async function () {
-    pls();
-    for (let i = 0; i < 10; i++) {
-        let tensor = tf.browser.fromPixels(imageArray[i], 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
-        let predictions = await model.predict(tensor).data();
-        let top5 = Array.from(predictions)
-            .map(function (p, j) {
-                return {
-                    probability: p,
-                    className: classNames[j]
-                };
-            }).sort(function (a, b) {
-                return b.probability - a.probability;
-            }).slice(0, 5);
-        console.log(top5[0].className);
-    }
+    let tensor = tf.browser.fromPixels(convertCanvasToImage(canvas), 1).resizeNearestNeighbor([28, 28]).expandDims(0);
+
+    let predictions = await model.predict(tensor).data();
+    let top5 = Array.from(predictions)
+        .map(function (p, j) {
+            return {
+                probability: p,
+                className: classNames[j]
+            };
+        }).sort(function (a, b) {
+            return b.probability - a.probability;
+        }).slice(0, 5);
+    console.log(top5[0].className);
+
 })
 // -----------------------------------------------------------------------------------------------------
 var sketchpad;
 $(document).ready(function () {
-  sketchpad = new Sketchpad({
-    element: '#sketchpad',
-    width: 300,
-    height: 300
-  });
-  $('#color-picker').change(color);
+    sketchpad = new Sketchpad({
+        element: '#sketchpad',
+        width: 300,
+        height: 300
+    });
+    $('#color-picker').change(color);
 });
 
 function undo() {
-  sketchpad.undo();
+    sketchpad.undo();
 }
 
 function color(event) {
@@ -257,15 +256,10 @@ function color(event) {
 }
 
 var canvas = document.getElementById("sketchpad"),
-context = canvas.getContext('2d');
+    context = canvas.getContext('2d');
 
 function convertCanvasToImage(canvas) {
-    var image = new Image();
+    var image = new Image(100, 100);
     image.src = canvas.toDataURL("image/jpeg");
     return image;
-}
-function pls() {
-    var newImage = convertCanvasToImage(canvas);
-    // newImage.style.backgroundColor = "white";
-    console.log(newImage.src);
 }
