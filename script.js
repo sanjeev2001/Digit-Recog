@@ -1,9 +1,8 @@
 import {
     MnistData
 } from './data.js';
-
+var newImage;
 //run();
-
 async function showExamples(data) {
     // Create a container in the visor
     const surface =
@@ -220,11 +219,11 @@ let model;
 
 
 $("button").click(async function () {
-    pls();
+    convertCanvasToImage(canvas);
     for (let i = 0; i < 10; i++) {
         let tensor = tf.browser.fromPixels(imageArray[i], 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
-        let predictions = await model.predict(tensor).data();
+        let predictions = await model.predict(tens or).data();
         let top5 = Array.from(predictions)
             .map(function (p, j) {
                 return {
@@ -246,6 +245,7 @@ $(document).ready(function () {
     height: 300
   });
   $('#color-picker').change(color);
+  $('#color-picker').val('#000');
 });
 
 function undo() {
@@ -262,10 +262,6 @@ context = canvas.getContext('2d');
 function convertCanvasToImage(canvas) {
     var image = new Image();
     image.src = canvas.toDataURL("image/jpeg");
-    return image;
+    console.log(image.src);
 }
-function pls() {
-    var newImage = convertCanvasToImage(canvas);
-    // newImage.style.backgroundColor = "white";
-    console.log(newImage.src);
-}
+
