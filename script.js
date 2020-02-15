@@ -220,9 +220,8 @@ let model;
 
 
 $("button").click(async function () {
+    pls();
     for (let i = 0; i < 10; i++) {
-        const IMAGE_WIDTH = 28;
-        const IMAGE_HEIGHT = 28;
         let tensor = tf.browser.fromPixels(imageArray[i], 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
         let predictions = await model.predict(tensor).data();
@@ -238,3 +237,35 @@ $("button").click(async function () {
         console.log(top5[0].className);
     }
 })
+// -----------------------------------------------------------------------------------------------------
+var sketchpad;
+$(document).ready(function () {
+  sketchpad = new Sketchpad({
+    element: '#sketchpad',
+    width: 300,
+    height: 300
+  });
+  $('#color-picker').change(color);
+});
+
+function undo() {
+  sketchpad.undo();
+}
+
+function color(event) {
+    sketchpad.color = $(event.target).val();
+}
+
+var canvas = document.getElementById("sketchpad"),
+context = canvas.getContext('2d');
+
+function convertCanvasToImage(canvas) {
+    var image = new Image();
+    image.src = canvas.toDataURL("image/jpeg");
+    return image;
+}
+function pls() {
+    var newImage = convertCanvasToImage(canvas);
+    // newImage.style.backgroundColor = "white";
+    console.log(newImage.src);
+}

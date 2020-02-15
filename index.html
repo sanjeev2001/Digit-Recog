@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <!-- Import TensorFlow.js -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
     <!-- Import tfjs-vis -->
@@ -20,8 +22,23 @@
     <!-- Import the data file -->
     <script src="data.js" type="module"></script>
 
+    <script src="sketch/scripts/sketchpad.js"></script>
     <!-- Import the main script file -->
     <script src="script.js" type="module"></script>
+
+    <style>
+        .sketchpad {
+            background: #FFF;
+            width: 300px;
+            height: 300px;
+            border-radius: 2px;
+
+
+            -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+        }
+    </style>
 
 </head>
 
@@ -48,6 +65,10 @@
                 <img id="img8" src="8.png" alt="The Pulpit Rock" width="100" height="100">
                 <img id="img9" src="9.png" alt="The Pulpit Rock" width="100" height="100">
             </div>
+            <div style="text-align: center">
+                <canvas class="sketchpad" id="sketchpad"><canvas>
+            </div>
+            <input id="color-picker" type="color">
         </div>
     </main>
 
