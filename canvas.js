@@ -7,15 +7,9 @@ window.addEventListener("load", () => {
 
     let drawing = false;
 
-<<<<<<< HEAD
     function startingPointerPosition(e){
         drawing = true;
         pointerDraw(e);
-=======
-    function startingMousePosition(e){
-        drawing = true;
-        mouseDraw(e);
->>>>>>> origin/Ashanth
     }
 
     function startingTouchPosition(e){
@@ -54,15 +48,9 @@ window.addEventListener("load", () => {
         context.moveTo(e.changedTouches[0].clientX - canvas.offsetLeft, e.changedTouches[0].clientY - canvas.offsetTop);
     }
 
-<<<<<<< HEAD
     canvas.addEventListener('pointerdown', startingPointerPosition);
     canvas.addEventListener('pointerup', endingPosition);
     canvas.addEventListener('pointermove', pointerDraw);
-=======
-    canvas.addEventListener('mousedown', startingMousePosition);
-    canvas.addEventListener('mouseup', endingPosition);
-    canvas.addEventListener('mousemove', mouseDraw);
->>>>>>> origin/Ashanth
     canvas.addEventListener('touchstart', startingTouchPosition);
     canvas.addEventListener('touchend', endingPosition);
     canvas.addEventListener('touchmove', touchDraw);
