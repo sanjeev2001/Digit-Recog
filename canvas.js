@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
         if(!drawing){
             return;
         }
-        //context.lineWidth = 10;
+        context.lineWidth = 10;
         context.lineCap = "round";
 
         context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
@@ -64,6 +64,6 @@ clear.addEventListener('click', function(e) {
     context.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-function penSize(e) {
+function penSize(e) {  
     context.lineWidth = 10;
 }
