@@ -1,6 +1,7 @@
 var sketchpad;
-var canvas = document.getElementById("sketchpad"),
-    context = canvas.getContext('2d');
+var canvas = document.getElementById("sketchpad")
+const context = canvas.getContext('2d');
+var prediction;
 
 $(document).ready(function () {
 
@@ -10,6 +11,8 @@ $(document).ready(function () {
         height: 300
     });
     $('#color-picker').change(color);
+    $('#color-picker').val("#ff1212");
+
 });
 
 function color(event) {
@@ -35,6 +38,7 @@ let model;
 
 $("button").click(async function () {
     convertCanvasToImage(canvas).onload = async function () {
+
         let tensor = tf.browser.fromPixels(convertCanvasToImage(canvas), 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
         let predictions = await model.predict(tensor).data();
@@ -47,7 +51,8 @@ $("button").click(async function () {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
-        console.log(top5[0].className);
+        prediction = top5[0].className;
+        console.log(prediction);
     }
 
 })
