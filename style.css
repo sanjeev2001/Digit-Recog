@@ -1,0 +1,53 @@
+.header {
+    text-align: center;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
+    font-size: 4vw;
+}
+
+/* .sketchpad {
+    background: #FFF;
+    border-radius: 2px;
+
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+} */
+
+#canvas {
+    background: #FFF;
+    border-radius: 2px;
+
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.left {
+    text-align: right;
+    padding-right: 1.5%;
+}
+
+.right {
+    text-align: left;
+}
+
+#rectangle {
+    width: 200px;
+    height: 100px;
+    border-radius: 2px;
+
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    background: rgb(255, 255, 255);
+}
+
+#pred, #pls {
+    font-family: 'Roboto Slab', serif;
+}
