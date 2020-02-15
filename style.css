@@ -38,3 +38,7 @@
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     background: rgb(255, 255, 255);
 }
+
+#pred, #pls {
+    font-family: 'Roboto Slab', serif;
+}

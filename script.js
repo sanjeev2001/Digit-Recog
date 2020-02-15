@@ -1,5 +1,6 @@
 var sketchpad;
 var canvas = document.getElementById("sketchpad");
+var prediction = document.getElementById("pred");
 const context = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
@@ -49,7 +50,8 @@ $("button").click(async function () {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
-        prediction = top5[0].className;
-        console.log(prediction);
+        prediction.innerHTML = top5[0].className;
+        console.log(prediction.innerHTML);
+        
     }
 })
