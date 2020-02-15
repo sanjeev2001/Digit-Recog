@@ -7,10 +7,16 @@ window.addEventListener("load", () => {
 
     let drawing = false;
 
-    function startingPosition(e){
+    function startingMousePosition(e){
         drawing = true;
-        draw(e);
+        mouseDraw(e);
     }
+
+    function startingTouchPosition(e){
+        drawing = true;
+        touchDraw(e);
+    }
+
     function endingPosition(){
         drawing = false;
         context.beginPath();
@@ -42,10 +48,10 @@ window.addEventListener("load", () => {
         context.moveTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
     }
 
-    canvas.addEventListener('mousedown', startingPosition);
+    canvas.addEventListener('mousedown', startingMousePosition);
     canvas.addEventListener('mouseup', endingPosition);
     canvas.addEventListener('mousemove', mouseDraw);
-    canvas.addEventListener('touchstart', startingPosition);
+    canvas.addEventListener('touchstart', startingTouchPosition);
     canvas.addEventListener('touchend', endingPosition);
     canvas.addEventListener('touchmove', touchDraw);
 
