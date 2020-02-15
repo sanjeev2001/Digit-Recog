@@ -5,17 +5,13 @@ const context = canvas.getContext("2d");
 window.addEventListener("load", () => {
     canvas.width = window.innerWidth * 0.45;
     canvas.height = window.innerHeight * 0.45;
-    context.strokeStyle = "#FFFFFF";
+    context.strokeStyle = "#FF1212";
 
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
+    var slider = document.getElementById("slider");
     context.lineWidth = 10;
-
-    slider.oninput = function () {
-        console.log(output.innerHTML);
-        output.innerHTML = this.value;
-        context.lineWidth = slider.value;
-        return output;
+    slider.oninput = (e) => {
+        const thickness = e.target.value
+        context.lineWidth = thickness;
     }
 
     let drawing = false;
@@ -68,13 +64,12 @@ window.addEventListener("load", () => {
     canvas.addEventListener('touchmove', touchDraw);
 });
 
-// const clear = document.querySelector('#clear');
-// clear.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     console.log("Clear has been clicked");
-//     const context = canvas.getContext("2d");
-//     context.clearRect(0, 0, canvas.width, canvas.height);
-// });
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', function (e) {
+    e.preventDefault();
+    const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+});
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
