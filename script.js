@@ -2,7 +2,7 @@ import {
     MnistData
 } from './data.js';
 
-// run();
+//run();
 
 async function showExamples(data) {
     // Create a container in the visor
@@ -42,12 +42,8 @@ async function run() {
     await data.load();
     await showExamples(data);
 
-
-    // const model = await tf.loadLayersModel(tf.io.browserFiles(
-    // [uploadJSONInput.files[0], uploadWeightsInput.files[0]]));
-    const model = await tf.loadLayersModel('localstorage://my-model');
+    const model = await tf.loadLayersModel('http://sanjeev2001.github.io/my-model.json');
     // const model = getModel();
-
 
     tfvis.show.modelSummary({
         name: 'Model Architecture'
@@ -208,48 +204,37 @@ async function showConfusion(model, data) {
     labels.dispose();
 }
 
-$("#image-selector").change(function () {
-    let reader = new FileReader();
-    reader.onload = function () {
-        let dataURL = reader.result;
-        $('#selected-image').attr("src", dataURL);
-        $("prediction-list").empty();
-    }
-    let file = $("image-selector").prop('files')[0];
-    reader.readAsDataURL(file);
-});
+let imageArray = new Array();
+for (let i = 0; i < 11; i++) {
+    imageArray[i] = document.getElementById("img" + i.toString());
+}
 
 let model;
 (async function () {
     // model = await tf.loadLayersModel(tf.io.browserFiles([uploadJSONInput.files[0], uploadWeightsInput.files[0]]));
-    model = await tf.loadLayersModel('localstorage://my-model');
+    model = await tf.loadLayersModel('http://sanjeev2001.github.io/my-model.json');
     setTimeout(() => {
         $(".progress-bar").hide();
     }, 2000)
 })();
 
-$("predict-button").click(async function () {
-    let image = $("#selected-image").get(0);
-    let tensor = tf.fromPixels(image)
-        .resizeNearestNeighbor([28, 28])
-        .toFloat()
-        .expandDims();
 
-    // More pre-processing to be added here later
+$("button").click(async function () {
+    for (let i = 0; i < 10; i++) {
+        const IMAGE_WIDTH = 28;
+        const IMAGE_HEIGHT = 28;
+        let tensor = tf.browser.fromPixels(imageArray[i], 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
-    let predictions = await model.predict(tensor).data();
-    let pls = Array.from(predictions)
-        .map(function (p, i) {
-            return {
-                probability: p,
-                className: classNames[i]
-            };
-        }).sort(function (a, b) {
-            return b.probability - a.probability;
-        }).slice(0, 5);
-
-    $("#prediction-list").empty();
-    pls.forEach(function (p) {
-        $("#prediction-list").append(`<li>${p.className}: ${p.probability.toFixed(6)}</li>`);
-    });
+        let predictions = await model.predict(tensor).data();
+        let top5 = Array.from(predictions)
+            .map(function (p, j) {
+                return {
+                    probability: p,
+                    className: classNames[j]
+                };
+            }).sort(function (a, b) {
+                return b.probability - a.probability;
+            }).slice(0, 5);
+        console.log(top5[0].className);
+    }
 })
