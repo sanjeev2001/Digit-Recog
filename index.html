@@ -11,18 +11,21 @@
 <body>
     <nav>
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">RAFS SketchPad</a>
+          <!-- <a href="#!" class="brand-logo">RAFS SketchPad</a> -->
+          <p>Value: <span id="demo"></span></p>
           <ul class="right">
             <li><a id="undo">Undo</a></li>
             <li><a id="clear">Clear</a></li>
           </ul>
         </div>
+        <div class="slideContainer">
+            <input class="slider" type="range" min="5" max="30" value="10" id="myRange">
+            
+        </div>
     </nav>
     <div>
         <canvas id="canvas" width="1518"></canvas>
     </div>
-
     <script src="canvas.js"></script>
-    
 </body>
 </html>
