@@ -1,5 +1,6 @@
 var sketchpad;
 var canvas = document.getElementById("sketchpad");
+var prediction = document.getElementById("pred");
 const context = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
@@ -36,6 +37,7 @@ let model;
 
 $("button").click(async function () {
     convertCanvasToImage(canvas).onload = async function () {
+
         let tensor = tf.browser.fromPixels(convertCanvasToImage(canvas), 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
         let predictions = await model.predict(tensor).data();
@@ -48,6 +50,8 @@ $("button").click(async function () {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
-        console.log(top5[0].className);
+        prediction.innerHTML = top5[0].className;
+        console.log(prediction.innerHTML);
+        
     }
 })
