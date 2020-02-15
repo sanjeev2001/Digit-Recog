@@ -1,18 +1,18 @@
 var sketchpad;
-var canvas = document.getElementById("sketchpad")
+var canvas = document.getElementById("sketchpad");
 const context = canvas.getContext('2d');
-var prediction;
+const width = canvas.width = window.innerWidth;
+const height = canvas.height = window.innerHeight;
+const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
 
 $(document).ready(function () {
-
     sketchpad = new Sketchpad({
         element: '#sketchpad',
-        width: 300,
-        height: 300
+        width: 0.45 * width,
+        height: 0.45 * height
     });
     $('#color-picker').change(color);
     $('#color-picker').val("#ff1212");
-
 });
 
 function color(event) {
@@ -24,8 +24,6 @@ function convertCanvasToImage(canvas) {
     image.src = canvas.toDataURL("image/jpeg");
     return image;
 }
-
-const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
 
 let model;
 (async function () {
@@ -54,5 +52,4 @@ $("button").click(async function () {
         prediction = top5[0].className;
         console.log(prediction);
     }
-
 })
