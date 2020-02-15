@@ -205,7 +205,7 @@ async function showConfusion(model, data) {
 }
 
 let imageArray = new Array();
-for (let i = 0; i < 11; i++) {
+for (let i = 0; i < 10; i++) {
     imageArray[i] = document.getElementById("img" + i.toString());
 }
 
