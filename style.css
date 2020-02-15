@@ -38,3 +38,53 @@
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     background: rgb(255, 255, 255);
 }
+
+/* .footer {
+    text-align: center;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 30px;
+    font-size: 1.5vw;
+    position: absolute;
+    bottom: 0%;
+    text-decoration: none;
+    margin: 0;
+} */
+
+/* .container {
+    width: 20%;
+    margin: 0 auto;
+}
+
+ul li {
+    display: inline;
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+    width: 25%;
+    padding: .75rem 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.s:hover~hr {
+    margin-left: 25%;
+}
+
+.as:hover~hr {
+    margin-left: 50%;
+}
+
+.r:hover~hr {
+    margin-left: 75%;
+}
+
+hr {
+    height: .25rem;
+    width: 25%;
+    margin: 0;
+    background: tomato;
+    border: none;
+    transition: .3s ease-in-out;
+} */
