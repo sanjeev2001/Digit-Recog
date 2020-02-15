@@ -5,17 +5,15 @@ const context = canvas.getContext("2d");
 window.addEventListener("load", () => {
     canvas.width = window.innerWidth * 0.45;
     canvas.height = window.innerHeight * 0.45;
-    context.strokeStyle = "#FFFFFF";
+    context.strokeStyle = "#00ff00";
 
     var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
     context.lineWidth = 10;
 
-    slider.oninput = function () {
-        console.log(output.innerHTML);
-        output.innerHTML = this.value;
-        context.lineWidth = slider.value;
-        return output;
+    slider.oninput = (e) => {
+        console.log(e.target.value);
+        const thickness = e.target.value;
+        context.lineWidth = thickness;
     }
 
     let drawing = false;
