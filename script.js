@@ -219,21 +219,21 @@ let model;
 
 
 $("button").click(async function () {
-    let tensor = tf.browser.fromPixels(convertCanvasToImage(canvas), 1).resizeNearestNeighbor([28, 28]).expandDims(0);
+    convertCanvasToImage(canvas).onload = async function () {
+        let tensor = tf.browser.fromPixels(convertCanvasToImage(canvas), 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
-    let predictions = await model.predict(tensor).data();
-    let top5 = Array.from(predictions)
-        .map(function (p, j) {
-            return {
-                probability: p,
-                className: classNames[j]
-            };
-        }).sort(function (a, b) {
-            return b.probability - a.probability;
-        }).slice(0, 5);
-    console.log(top5[0].className);
-
-
+        let predictions = await model.predict(tensor).data();
+        let top5 = Array.from(predictions)
+            .map(function (p, j) {
+                return {
+                    probability: p,
+                    className: classNames[j]
+                };
+            }).sort(function (a, b) {
+                return b.probability - a.probability;
+            }).slice(0, 5);
+        console.log(top5[0].className);
+    }
 })
 // -----------------------------------------------------------------------------------------------------
 var sketchpad;
@@ -264,4 +264,3 @@ function convertCanvasToImage(canvas) {
     image.src = canvas.toDataURL("image/jpeg");
     return image;
 }
-
