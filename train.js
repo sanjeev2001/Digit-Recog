@@ -1,7 +1,7 @@
 import {
     MnistData
 } from './data.js';
-
+run();
 async function showExamples(data) {
     // Create a container in the visor
     const surface =
@@ -135,13 +135,13 @@ async function train(model, data) {
     const TRAIN_DATA_SIZE = 5500;
     const TEST_DATA_SIZE = 1000;
 
-    const [trainXs, trainYs] = tf.tidy(() => {
-        const d = data.nextTrainBatch(TRAIN_DATA_SIZE);
-        return [
-            d.xs.reshape([TRAIN_DATA_SIZE, 28, 28, 1]),
-            d.labels
-        ];
-    });
+    // const [trainXs, trainYs] = tf.tidy(() => {
+    //     const d = data.nextTrainBatch(TRAIN_DATA_SIZE);
+    //     return [
+    //         d.xs.reshape([TRAIN_DATA_SIZE, 28, 28, 1]),
+    //         d.labels
+    //     ];
+    // });
 
     const [testXs, testYs] = tf.tidy(() => {
         const d = data.nextTestBatch(TEST_DATA_SIZE);
