@@ -55,9 +55,9 @@ window.addEventListener("load", () => {
         context.moveTo(e.changedTouches[0].clientX - canvas.offsetLeft, e.changedTouches[0].clientY - canvas.offsetTop);
     }
 
-    canvas.addEventListener('pointerdown', startingPointerPosition);
-    canvas.addEventListener('pointerup', endingPosition);
-    canvas.addEventListener('pointermove', pointerDraw);
+    // canvas.addEventListener('pointerdown', startingPointerPosition);
+    // canvas.addEventListener('pointerup', endingPosition);
+    // canvas.addEventListener('pointermove', pointerDraw);
     canvas.addEventListener('touchstart', startingTouchPosition);
     canvas.addEventListener('touchend', endingPosition);
     canvas.addEventListener('touchmove', touchDraw);
@@ -65,6 +65,8 @@ window.addEventListener("load", () => {
 
 const clear = document.querySelector('#clear-button');
 clear.addEventListener('click', function (e) {
+    prediction.style.display = "none";
+    classOut.style.display = "none";
     e.preventDefault();
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -89,7 +91,6 @@ let model;
 
 })();
 
-
 canvas.addEventListener('pointerout', function () {
 
     var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
@@ -101,7 +102,7 @@ canvas.addEventListener('pointerout', function () {
             tempData[i] = 255;
         }
     }
-    
+
     convertCanvasToImage(canvas).onload = async function () {
         var preImage = convertCanvasToImage(canvas);
 
@@ -117,43 +118,25 @@ canvas.addEventListener('pointerout', function () {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
-            
+
+        prediction.style.display = "block";
+        classOut.style.display = "block";
         prediction.innerHTML = classNames.indexOf(top5[0].className);
         classOut.innerHTML = top5[0].className;
     }
 });
 
-const button_red = document.querySelector('.circle-red');
-button_red.addEventListener('click', function (e) {
-    context.strokeStyle = "#FF6961";
-});
+function buttonMaker(qS, colour) {
+    const btn = document.querySelector(qS);
+    btn.addEventListener('click', function (e) {
+        context.strokeStyle = colour;
+    });
+}
 
-const button_orange = document.querySelector('.circle-orange');
-button_orange.addEventListener('click', function (e) {
-    context.strokeStyle = "#FFC97D";
-});
-
-const button_yellow = document.querySelector('.circle-yellow');
-button_yellow.addEventListener('click', function (e) {
-    context.strokeStyle = "#FDFD96";
-});
-
-const button_green = document.querySelector('.circle-green');
-button_green.addEventListener('click', function (e) {
-    context.strokeStyle = "#90EE90";
-});
-
-const button_blue = document.querySelector('.circle-blue');
-button_blue.addEventListener('click', function (e) {
-    context.strokeStyle = "#ADD8E6";
-});
-
-const button_indigo = document.querySelector('.circle-indigo');
-button_indigo.addEventListener('click', function (e) {
-    context.strokeStyle = "#A2ABE7";
-});
-
-const button_purple = document.querySelector('.circle-purple');
-button_purple.addEventListener('click', function (e) {
-    context.strokeStyle = "#B19CD9";
-});
+buttonMaker('.circle-red', '#FF6961');
+buttonMaker('.circle-orange', '#FFC97D');
+buttonMaker('.circle-yellow', '#FDFD96');
+buttonMaker('.circle-green', '#90EE90');
+buttonMaker('.circle-blue', '#ADD8E6');
+buttonMaker('.circle-indigo', '#A2ABE7');
+buttonMaker('.circle-purple', '#B19CD9');
