@@ -66,6 +66,8 @@ window.addEventListener("load", () => {
 const clear = document.querySelector('#clear-button');
 clear.addEventListener('click', function (e) {
     e.preventDefault();
+    prediction.style.display = "none";
+    classOut.style.display = "none";
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
 });
@@ -101,7 +103,7 @@ canvas.addEventListener('pointerout', function () {
             tempData[i] = 255;
         }
     }
-    
+
     convertCanvasToImage(canvas).onload = async function () {
         var preImage = convertCanvasToImage(canvas);
 
@@ -117,7 +119,9 @@ canvas.addEventListener('pointerout', function () {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
-            
+
+        prediction.style.display = "block";
+        classOut.style.display = "block";
         prediction.innerHTML = classNames.indexOf(top5[0].className);
         classOut.innerHTML = top5[0].className;
     }
