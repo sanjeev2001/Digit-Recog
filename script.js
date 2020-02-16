@@ -6,22 +6,8 @@ window.addEventListener("load", () => {
     canvas.width = window.innerWidth * 0.3;
     canvas.height = window.innerWidth * 0.3;
     context.strokeStyle = "#ff1212";
+    context.lineWidth = 15;
 
-    var slider = document.getElementById("slider");
-    context.lineWidth = 10;
-    slider.oninput = (e) => {
-        console.log(e.target.value);
-        const thickness = e.target.value
-        context.lineWidth = thickness;
-    }
-
-    canvas.onmouseup = (e) => {
-        // console.log("Mouse has moved");
-        console.log(e);
-        context.save();
-    }
-
-    const undo = document.querySelector('#undo-button');
     clear.addEventListener('click', function (e) {
         context.restore();
     });
@@ -87,6 +73,8 @@ clear.addEventListener('click', function (e) {
 //-------------------------------------------------------------------------------------------------------------------------------------
 
 var prediction = document.getElementById("pred");
+var classOut = document.getElementById("idk");
+var out;
 const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
 
 function convertCanvasToImage(canvas) {
@@ -98,14 +86,12 @@ function convertCanvasToImage(canvas) {
 let model;
 (async function () {
     model = await tf.loadLayersModel('https://sanjeev2001.github.io/my-model.json');
-    setTimeout(() => {
-        $(".progress-bar").hide();
-    }, 2000)
+
 })();
 
 
 canvas.addEventListener('pointerout', function () {
-    
+
     var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
     var tempData = new Array();
     tempData = imgData.data;
@@ -115,9 +101,7 @@ canvas.addEventListener('pointerout', function () {
             tempData[i] = 255;
         }
     }
-
-    // context.putImageData(imgData, 0, 0);
-
+    
     convertCanvasToImage(canvas).onload = async function () {
         var preImage = convertCanvasToImage(canvas);
 
@@ -133,8 +117,9 @@ canvas.addEventListener('pointerout', function () {
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
-        prediction.innerHTML = top5[0].className;
-        console.log(prediction.innerHTML);
+            
+        prediction.innerHTML = classNames.indexOf(top5[0].className);
+        classOut.innerHTML = top5[0].className;
     }
 });
 

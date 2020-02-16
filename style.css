@@ -1,8 +1,28 @@
 .header {
     text-align: center;
+    font-size: 4.5vw;
+}
+
+.header, .links {
     font-family: 'Shadows Into Light', cursive;
-    font-size: 30px;
-    font-size: 4vw;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    font-size: 2vw;
+}
+
+a {
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
 }
 
 #canvas {
@@ -16,7 +36,7 @@
 
 .column {
     float: left;
-    width: 50%;
+    width: 45%;
 }
 
 .left {
@@ -29,55 +49,124 @@
 }
 
 #rectangle {
-    width: 200px;
-    height: 100px;
+    width: 30%;
+    height: 30vw;
     border-radius: 2px;
-
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     background: rgb(255, 255, 255);
 }
 
-#pred, #pls {
+#pred, p, #clear-button {
     font-family: 'Roboto Slab', serif;
 }
 
+#num {
+    text-align: center;
+    font-size: 18vw;
+    margin: 0;
+    padding: 0;
+}
 
+#word {
+    text-align: center;
+    font-size: 2vw;
+}
+
+#clear-button {
+    border-radius: 8px;
+    font-size: 2.5vw;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+li {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 0;
+}
+
+ul {
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    width: 50px;
+}
+
+.circle-red:hover {
+    border: solid;
+    border-color: black;
+}
+
+.circle-orange:hover {
+    border: solid;
+    border-color: black;
+}
+
+.circle-yellow:hover {
+    border: solid;
+    border-color: black;
+}
+
+.circle-green:hover {
+    border: solid;
+    border-color: black;
+}
+
+.circle-blue:hover {
+    border: solid;
+    border-color: black;
+}
+
+.circle-purple:hover {
+    border: solid;
+    border-color: black;
+}
+
+.circle-indigo:hover {
+    border: solid;
+    border-color: black;
+}
 
 .circle-red {
-    height: 25px;
-    width: 25px;
+    vertical-align: auto;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: rgb(255, 105, 97);
+    background-color: rgb(405, 105, 97);
+    border-style: none;
 }
 
 .circle-orange {
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: rgb(255, 201, 125);
+    background-color: rgb(405, 201, 140);
+    border-style: none;
 }
 
 .circle-yellow {
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: rgb(253, 253, 150);
+    background-color: rgb(403, 403, 150);
 }
 
 .circle-green {
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
@@ -86,8 +175,8 @@
 }
 
 .circle-blue {
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
@@ -96,8 +185,8 @@
 }
 
 .circle-indigo {
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
@@ -106,8 +195,8 @@
 }
 
 .circle-purple {
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;

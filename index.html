@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handwriting TensorFlow Model</title>
+    <title>Digit Recognition</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -14,61 +13,50 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-    <!-- Import TensorFlow.js -->
+    <!-- TensorFlow.js API -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
-    <!-- Import tfjs-vis -->
+    <!-- TensorFlow Visualization API -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
 
-    <!-- Import the data file -->
-    <script src="data.js" type="module"></script>
-
-    <!-- <script src="sketch/scripts/sketchpad.js"></script> -->
     <!-- Import the main script file -->
     <script src="script.js" type="module"></script>
 
     <h1 class="header">Digit Recog</h1>
-
 </head>
 
 <body>
-
-    <div class="slideContainer">
-        <input class="slider" type="range" min="5" max="30" value="10" id="slider">
-    </div>
     <button id="clear-button">Clear</button>
-    <!-- <span class="circle-white"></span> -->
-    <span class="circle-red"></span>
-    <span class="circle-orange"></span>
-    <span class="circle-yellow"></span>
-    <span class="circle-green"></span>
-    <span class="circle-blue"></span>
-    <span class="circle-indigo"></span>
-    <span class="circle-purple"></span>
 
-        <div class="container mt-5">
-            <div  class="column left">
-                <canvas id="canvas"></canvas>
-            </div>
+    <ul>
+        <li><button class="circle-red"></button></li>
+        <li><button class="circle-orange"></button></li>
+        <li><span class="circle-yellow"></span></li>
+        <li><span class="circle-green"></span></li>
+        <li><span class="circle-blue"></span></li>
+        <li><span class="circle-indigo"></span></li>
+        <li><span class="circle-purple"></span></li>
+    </ul>
 
-            <div class="column right" id="rectangle">
-                <p id="pls">Prediction: <span id="pred"></span></p>
-            </div>
-        </div>
+    <div class="container mt-5"></div>
+    <div class="column left">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="column right" id="rectangle">
+        <p id="num"><span id="pred"></span></p>
+        <p id="word"><span id="idk"></span></p>
+    </div>
+    </div>
 </body>
 
-<!-- <h2 class="footer">
-    <div class="container">
+<h2 class="footer">
+    <div class="links">
         Created by:
-        <ul>
-            <li class="f"><a href="https://github.com/fofsfofs">Farhan</a></li>
-            <li class="s"><a href="https://github.com/sanjeev2001">Sanjeev</a></li>
-            <li class="as"><a href="https://github.com/Ashxnth">Ashanth</a></li>
-            <li class="r"><a href="https://github.com/Ricky-H142">Ricky</a></li>
-            <hr />
-        </ul>
+        <a href="https://github.com/fofsfofs">Farhan</a>
+        <a href="https://github.com/sanjeev2001">Sanjeev</a>
+        <a href="https://github.com/Ashxnth">Ashanth</a>
+        <a href="https://github.com/Ricky-H142">Ricky</a>
     </div>
-</h2> -->
+</h2>
 
 </html>
