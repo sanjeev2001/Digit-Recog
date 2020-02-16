@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
     clear.addEventListener('click', function (e) {
         context.restore();
     });
-    
+
 
     let drawing = false;
 
@@ -105,7 +105,9 @@ let model;
 window.addEventListener("pointerup", function () {
     console.log("pointer lifted");
 })
-$("button").click(async function () {
+
+canvas.addEventListener('pointerout', function () {
+    
     var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
 
     for (var i = 0; i < imgData.data.length; i++) {
@@ -134,39 +136,39 @@ $("button").click(async function () {
         prediction.innerHTML = top5[0].className;
         console.log(prediction.innerHTML);
     }
-})
+});
 
 const button_red = document.querySelector('.circle-red');
 button_red.addEventListener('click', function (e) {
-    context.strokeStyle = "#FF6961";  
+    context.strokeStyle = "#FF6961";
 });
 
 const button_orange = document.querySelector('.circle-orange');
 button_orange.addEventListener('click', function (e) {
-    context.strokeStyle = "#FFC97D";  
+    context.strokeStyle = "#FFC97D";
 });
 
 const button_yellow = document.querySelector('.circle-yellow');
 button_yellow.addEventListener('click', function (e) {
-    context.strokeStyle = "#FDFD96";  
+    context.strokeStyle = "#FDFD96";
 });
 
 const button_green = document.querySelector('.circle-green');
 button_green.addEventListener('click', function (e) {
-    context.strokeStyle = "#90EE90";  
+    context.strokeStyle = "#90EE90";
 });
 
 const button_blue = document.querySelector('.circle-blue');
 button_blue.addEventListener('click', function (e) {
-    context.strokeStyle = "#ADD8E6";  
+    context.strokeStyle = "#ADD8E6";
 });
 
 const button_indigo = document.querySelector('.circle-indigo');
 button_indigo.addEventListener('click', function (e) {
-    context.strokeStyle = "#A2ABE7";  
+    context.strokeStyle = "#A2ABE7";
 });
 
 const button_purple = document.querySelector('.circle-purple');
 button_purple.addEventListener('click', function (e) {
-    context.strokeStyle = "#B19CD9";  
+    context.strokeStyle = "#B19CD9";
 });
