@@ -5,3 +5,5 @@
 
 [digitrecog.online](http://digitrecog.online)
 
+![Model in action](/readme/model.gif)
+
