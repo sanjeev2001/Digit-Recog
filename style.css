@@ -42,3 +42,73 @@
 #pred, #pls {
     font-family: 'Roboto Slab', serif;
 }
+
+.circle-red {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: rgb(255, 105, 97);
+}
+
+.circle-orange {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: rgb(255, 201, 125);
+}
+
+.circle-yellow {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: rgb(253, 253, 150);
+}
+
+.circle-green {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #90EE90;
+}
+
+.circle-blue {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #ADD8E6;
+}
+
+.circle-indigo {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #A2ABE7;
+}
+
+.circle-purple {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #B19CD9;
+}

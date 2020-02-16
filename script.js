@@ -7,16 +7,25 @@ window.addEventListener("load", () => {
     canvas.height = window.innerWidth * 0.3;
     context.strokeStyle = "#ff1212";
 
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
+    var slider = document.getElementById("slider");
     context.lineWidth = 10;
-
-    slider.oninput = function () {
-        console.log(output.innerHTML);
-        output.innerHTML = this.value;
-        context.lineWidth = slider.value;
-        return output;
+    slider.oninput = (e) => {
+        console.log(e.target.value);
+        const thickness = e.target.value
+        context.lineWidth = thickness;
     }
+
+    canvas.onmouseup = (e) => {
+        console.log("Mouse has moved");
+        console.log(e);
+        context.save();
+    }
+
+    const undo = document.querySelector('#undo-button');
+    clear.addEventListener('click', function (e) {
+        context.restore();
+    });
+    
 
     let drawing = false;
 
@@ -68,6 +77,15 @@ window.addEventListener("load", () => {
     canvas.addEventListener('touchmove', touchDraw);
 });
 
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', function (e) {
+    e.preventDefault();
+    const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+
 var prediction = document.getElementById("pred");
 const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
 
@@ -114,5 +132,39 @@ $("button").click(async function () {
         prediction.innerHTML = top5[0].className;
         console.log(prediction.innerHTML);
     }
+})
+
+const button_red = document.querySelector('.circle-red');
+button_red.addEventListener('click', function (e) {
+    context.strokeStyle = "#FF6961";  
 });
 
+const button_orange = document.querySelector('.circle-orange');
+button_orange.addEventListener('click', function (e) {
+    context.strokeStyle = "#FFC97D";  
+});
+
+const button_yellow = document.querySelector('.circle-yellow');
+button_yellow.addEventListener('click', function (e) {
+    context.strokeStyle = "#FDFD96";  
+});
+
+const button_green = document.querySelector('.circle-green');
+button_green.addEventListener('click', function (e) {
+    context.strokeStyle = "#90EE90";  
+});
+
+const button_blue = document.querySelector('.circle-blue');
+button_blue.addEventListener('click', function (e) {
+    context.strokeStyle = "#ADD8E6";  
+});
+
+const button_indigo = document.querySelector('.circle-indigo');
+button_indigo.addEventListener('click', function (e) {
+    context.strokeStyle = "#A2ABE7";  
+});
+
+const button_purple = document.querySelector('.circle-purple');
+button_purple.addEventListener('click', function (e) {
+    context.strokeStyle = "#B19CD9";  
+});

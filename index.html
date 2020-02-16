@@ -35,15 +35,23 @@
 <body>
 
     <div class="slideContainer">
-        <input class="slider" type="range" min="5" max="30" value="10" id="myRange">
+        <input class="slider" type="range" min="5" max="30" value="10" id="slider">
     </div>
     <button id="predict-button">Predict</button>
+    <button id="clear-button">Clear</button>
+    <!-- <span class="circle-white"></span> -->
+    <span class="circle-red"></span>
+    <span class="circle-orange"></span>
+    <span class="circle-yellow"></span>
+    <span class="circle-green"></span>
+    <span class="circle-blue"></span>
+    <span class="circle-indigo"></span>
+    <span class="circle-purple"></span>
 
         <div class="container mt-5">
             <div  class="column left">
                 <canvas id="canvas"></canvas>
             </div>
-            <input id="color-picker" type="color">
 
             <div class="column right" id="rectangle">
                 <p id="pls">Prediction: <span id="pred"></span></p>
