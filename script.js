@@ -66,13 +66,12 @@ window.addEventListener("load", () => {
     canvas.addEventListener('touchmove', touchDraw);
 });
 
-// const clear = document.querySelector('#clear');
-// clear.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     console.log("Clear has been clicked");
-//     const context = canvas.getContext("2d");
-//     context.clearRect(0, 0, canvas.width, canvas.height);
-// });
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', function (e) {
+    e.preventDefault();
+    const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+});
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
