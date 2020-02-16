@@ -102,21 +102,21 @@ let model;
         $(".progress-bar").hide();
     }, 2000)
 })();
-window.addEventListener("pointerup", function () {
-    console.log("pointer lifted");
-})
+
 
 canvas.addEventListener('pointerout', function () {
     
     var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+    var tempData = new Array();
+    tempData = imgData.data;
 
-    for (var i = 0; i < imgData.data.length; i++) {
-        if (imgData.data[i] != 0) {
-            imgData.data[i] = 255;
+    for (var i = 0; i < tempData.length; i++) {
+        if (tempData[i] != 0) {
+            tempData[i] = 255;
         }
     }
 
-    context.putImageData(imgData, 0, 0);
+    // context.putImageData(imgData, 0, 0);
 
     convertCanvasToImage(canvas).onload = async function () {
         var preImage = convertCanvasToImage(canvas);
