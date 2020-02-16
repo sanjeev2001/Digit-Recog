@@ -143,12 +143,12 @@ $("button").click(async function () {
 
 const button_red = document.querySelector('.circle-red');
 button_red.addEventListener('click', function (e) {
-    context.strokeStyle = "#FF6961";  
+    context.strokeStyle = "#FF6961";
 });
 
 const button_orange = document.querySelector('.circle-orange');
 button_orange.addEventListener('click', function (e) {
-    context.strokeStyle = "#FFC97D";  
+    context.strokeStyle = "#FFC97D";
 });
 
 const button_yellow = document.querySelector('.circle-yellow');
