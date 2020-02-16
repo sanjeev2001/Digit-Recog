@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
     }
 
     canvas.onmouseup = (e) => {
-        console.log("Mouse has moved");
+        // console.log("Mouse has moved");
         console.log(e);
         context.save();
     }
@@ -102,7 +102,9 @@ let model;
         $(".progress-bar").hide();
     }, 2000)
 })();
-
+window.addEventListener("pointerup", function () {
+    console.log("pointer lifted");
+})
 $("button").click(async function () {
     var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
 
