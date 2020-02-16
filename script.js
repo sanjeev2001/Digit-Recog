@@ -5,16 +5,27 @@ const context = canvas.getContext("2d");
 window.addEventListener("load", () => {
     canvas.width = window.innerWidth * 0.45;
     canvas.height = window.innerHeight * 0.45;
-    context.strokeStyle = "#00ff00";
+    context.strokeStyle = "#FF1212";
 
-    var slider = document.getElementById("myRange");
+    var slider = document.getElementById("slider");
     context.lineWidth = 10;
-
     slider.oninput = (e) => {
         console.log(e.target.value);
-        const thickness = e.target.value;
+        const thickness = e.target.value
         context.lineWidth = thickness;
     }
+
+    canvas.onmouseup = (e) => {
+        console.log("Mouse has moved");
+        console.log(e);
+        context.save();
+    }
+
+    const undo = document.querySelector('#undo-button');
+    clear.addEventListener('click', function (e) {
+        context.restore();
+    });
+    
 
     let drawing = false;
 
