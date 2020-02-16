@@ -5,17 +5,8 @@
     font-size: 4vw;
 }
 
-/* .sketchpad {
-    background: #FFF;
-    border-radius: 2px;
-
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
-} */
-
 #canvas {
-    background: #FFF;
+    background: black;
     border-radius: 2px;
 
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);

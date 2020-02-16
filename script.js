@@ -3,9 +3,9 @@ const canvas = document.querySelector("#canvas");
 const context = canvas.getContext("2d");
 
 window.addEventListener("load", () => {
-    canvas.width = window.innerWidth * 0.45;
-    canvas.height = window.innerHeight * 0.45;
-    context.strokeStyle = "#FFFFFF";
+    canvas.width = window.innerWidth * 0.3;
+    canvas.height = window.innerWidth * 0.3;
+    context.strokeStyle = "#ff1212";
 
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
@@ -68,34 +68,8 @@ window.addEventListener("load", () => {
     canvas.addEventListener('touchmove', touchDraw);
 });
 
-// const clear = document.querySelector('#clear');
-// clear.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     console.log("Clear has been clicked");
-//     const context = canvas.getContext("2d");
-//     context.clearRect(0, 0, canvas.width, canvas.height);
-// });
-
-//-------------------------------------------------------------------------------------------------------------------------------------
-
-// var sketchpad;
-// var canvas = document.getElementById("sketchpad");
 var prediction = document.getElementById("pred");
 const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
-
-// $(document).ready(function () {
-//     sketchpad = new Sketchpad({
-//         element: '#sketchpad',
-//         width: 0.45 * width,
-//         height: 0.45 * height
-//     });
-//     $('#color-picker').change(color);
-//     $('#color-picker').val("#ff1212");
-// });
-
-// function color(event) {
-//     sketchpad.color = $(event.target).val();
-// }
 
 function convertCanvasToImage(canvas) {
     var image = new Image(100, 100);
@@ -105,30 +79,40 @@ function convertCanvasToImage(canvas) {
 
 let model;
 (async function () {
-    // model = await tf.loadLayersModel(tf.io.browserFiles([uploadJSONInput.files[0], uploadWeightsInput.files[0]]));
-    model = await tf.loadLayersModel('http://sanjeev2001.github.io/my-model.json');
+    model = await tf.loadLayersModel('https://sanjeev2001.github.io/my-model.json');
     setTimeout(() => {
         $(".progress-bar").hide();
     }, 2000)
 })();
 
 $("button").click(async function () {
-    convertCanvasToImage(canvas).onload = async function () {
+    var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
 
-        let tensor = tf.browser.fromPixels(convertCanvasToImage(canvas), 1).resizeNearestNeighbor([28, 28]).expandDims(0);
+    for (var i = 0; i < imgData.data.length; i++) {
+        if (imgData.data[i] != 0) {
+            imgData.data[i] = 255;
+        }
+    }
+
+    context.putImageData(imgData, 0, 0);
+
+    convertCanvasToImage(canvas).onload = async function () {
+        var preImage = convertCanvasToImage(canvas);
+
+        let tensor = tf.browser.fromPixels(preImage, 1).resizeNearestNeighbor([28, 28]).expandDims(0);
 
         let predictions = await model.predict(tensor).data();
         let top5 = Array.from(predictions)
-            .map(function (p, j) {
+            .map(function (p, i) {
                 return {
                     probability: p,
-                    className: classNames[j]
+                    className: classNames[i]
                 };
             }).sort(function (a, b) {
                 return b.probability - a.probability;
             }).slice(0, 5);
         prediction.innerHTML = top5[0].className;
         console.log(prediction.innerHTML);
-
     }
-})
+});
+
