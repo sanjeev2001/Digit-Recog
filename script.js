@@ -5,7 +5,7 @@ const context = canvas.getContext("2d");
 window.addEventListener("load", () => {
     canvas.width = window.innerWidth * 0.45;
     canvas.height = window.innerHeight * 0.45;
-    context.strokeStyle = "#FF1212";
+    context.strokeStyle = "#FF6961";
 
     var slider = document.getElementById("slider");
     context.lineWidth = 10;
@@ -140,3 +140,38 @@ $("button").click(async function () {
 
     }
 })
+
+const button_red = document.querySelector('.circle-red');
+button_red.addEventListener('click', function (e) {
+    context.strokeStyle = "#FF6961";  
+});
+
+const button_orange = document.querySelector('.circle-orange');
+button_orange.addEventListener('click', function (e) {
+    context.strokeStyle = "#FFC97D";  
+});
+
+const button_yellow = document.querySelector('.circle-yellow');
+button_yellow.addEventListener('click', function (e) {
+    context.strokeStyle = "#FDFD96";  
+});
+
+const button_green = document.querySelector('.circle-green');
+button_green.addEventListener('click', function (e) {
+    context.strokeStyle = "#90EE90";  
+});
+
+const button_blue = document.querySelector('.circle-blue');
+button_blue.addEventListener('click', function (e) {
+    context.strokeStyle = "#ADD8E6";  
+});
+
+const button_indigo = document.querySelector('.circle-indigo');
+button_indigo.addEventListener('click', function (e) {
+    context.strokeStyle = "#A2ABE7";  
+});
+
+const button_purple = document.querySelector('.circle-purple');
+button_purple.addEventListener('click', function (e) {
+    context.strokeStyle = "#B19CD9";  
+});
