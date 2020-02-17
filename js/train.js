@@ -1,6 +1,6 @@
 import {
     MnistData
-} from './data.js';
+} from './data.js/index.js';
 
 async function showExamples(data) {
     // Create a container in the visor
