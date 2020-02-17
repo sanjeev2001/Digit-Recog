@@ -8,7 +8,7 @@ This project was made in collaboration with [Farhan](https://github.com/fofsfofs
 [digitrecog.online](http://digitrecog.online)
 
 <p align="center">
-  <img src="/readme/model.gif">
+  <img src="https://i.imgur.com/R9p6kC4.gifv">
 </p>
 
 ## Training Statistics
