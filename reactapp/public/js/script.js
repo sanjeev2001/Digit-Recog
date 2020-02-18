@@ -2,11 +2,12 @@
 const canvas = document.querySelector("#canvas");
 const context = canvas.getContext("2d");
 
+
 window.addEventListener("load", () => {
-    canvas.width = window.innerWidth * 0.3;
-    canvas.height = window.innerWidth * 0.3;
+    canvas.width = document.getElementById("canvas").offsetWidth;
+    canvas.height = document.getElementById("canvas").offsetWidth;
     context.strokeStyle = "#ff1212";
-    context.lineWidth = 15;
+    context.lineWidth = 10;
 
     clear.addEventListener('click', function (e) {
         context.restore();
@@ -75,7 +76,7 @@ clear.addEventListener('click', function (e) {
 //-------------------------------------------------------------------------------------------------------------------------------------
 
 var prediction = document.getElementById("pred");
-var classOut = document.getElementById("idk");
+var classOut = document.getElementById("class");
 var out;
 const classNames = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
 
@@ -126,6 +127,8 @@ canvas.addEventListener('pointerout', function () {
         classOut.innerHTML = top5[0].className;
     }
 });
+
+//-------------------------------------------------------------------------------------------------------------------------------------
 
 const button_red = document.querySelector('.circle-red');
 button_red.addEventListener('click', function (e) {
