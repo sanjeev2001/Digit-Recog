@@ -1,205 +1,433 @@
-.header {
+@viewport {
+  width: device-width;
+  zoom: 1;
+}
+
+@media screen and (max-width: 320px) {
+  .header {
     text-align: center;
-    font-size: 4.5vw;
-}
+    font-size: 9vw;
+  }
 
-.header, .links {
-    font-family: 'Shadows Into Light', cursive;
-}
+  .header,
+  .links {
+    font-family: "Shadows Into Light", cursive;
+  }
 
-.footer {
+  .footer {
     position: absolute;
     bottom: 0px;
-    font-size: 2vw;
-}
+    left: 17%;
+    font-size: 4vw;
+    text-align: center;
+  }
 
-a {
+  a {
     color: black;
-}
+  }
 
-a:link {
+  a:link {
     text-decoration: none;
-}
+  }
 
-a:visited {
+  a:visited {
     text-decoration: none;
-}
+  }
 
-#canvas {
+  #canvas {
     background: black;
     border-radius: 2px;
-
+    width: 40vw;
+    height: 40vw;
+    text-align: center;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
-}
+  }
 
-.column {
+  .wrapper {
+    position: absolute;
+    display:inline-block;
+    margin-left: -25vw;
+  }
+
+  .left {
+    z-index: 1;
+  }
+
+  .right {
+    z-index: 2;
+    
+  }
+
+  #rectangle {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    background: rgb(255, 255, 255);
+  }
+
+  #pred,
+  p,
+  #clear-button {
+    font-family: "Roboto Slab", serif;
+  }
+
+  #num {
+    text-align: center;
+    font-size: 18vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  #word {
+    text-align: center;
+    font-size: 2vw;
+  }
+
+  #clear-button {
+    border-radius: 8px;
+    font-size: 5vw;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 0;
+  }
+
+  ul {
     float: left;
-    width: 45%;
+    padding: 10px;
+    margin: 10px;
+    width: 0px;
+  }
+
+  .circle-red:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-orange:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-yellow:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-green:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-blue:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-purple:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-indigo:hover {
+    border: solid;
+    border-color: black;
+  }
+
+  .circle-red {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #ff6961;
+  }
+
+  .circle-orange {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #ffc98c;
+  }
+
+  .circle-yellow {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #ffff96;
+  }
+
+  .circle-green {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #90ee90;
+  }
+
+  .circle-blue {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #add8e6;
+  }
+
+  .circle-indigo {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #a2abe7;
+  }
+
+  .circle-purple {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: auto;
+    background-color: #b19cd9;
+  }
 }
 
-.left {
-    text-align: right;
-    padding-right: 1.5%;
-}
+@media screen and (min-width: 721px) {
+  .header {
+    text-align: center;
+    font-size: 4.5vw;
+  }
 
-.right {
-    text-align: left;
-}
+  .header,
+  .links {
+    font-family: "Shadows Into Light", cursive;
+  }
 
-#rectangle {
-    width: 30%;
+  .footer {
+    position: absolute;
+    bottom: 0px;
+    font-size: 2vw;
+    padding-left: 1vw;
+  }
+
+  a {
+    color: black;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  #canvas {
+    background: black;
+    border-radius: 2px;
+    width: 30vw;
+    height: 30vw;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  }
+
+  .wrapper {
+    overflow: auto;
+    text-align: center;
+  }
+
+  .left {
+    display: inline-block;
+  }
+
+  .right {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .left + .right {
+    margin-left: 2vw;
+  }
+
+  #rectangle {
+    width: 30vw;
     height: 30vw;
     border-radius: 2px;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
     background: rgb(255, 255, 255);
-}
+  }
 
-#pred, p, #clear-button {
-    font-family: 'Roboto Slab', serif;
-}
+  #pred,
+  p,
+  #clear-button {
+    font-family: "Roboto Slab", serif;
+  }
 
-#num {
+  #num {
     text-align: center;
     font-size: 18vw;
     margin: 0;
     padding: 0;
-}
+  }
 
-#word {
+  #word {
     text-align: center;
     font-size: 2vw;
-}
+  }
 
-#clear-button {
+  #clear-button {
     border-radius: 8px;
-    font-size: 2.5vw;
+    font-size: 5vw;
     position: absolute;
     top: 8px;
     right: 10px;
-}
+  }
 
-li {
+  li {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
     width: 0;
-}
+  }
 
-ul {
+  ul {
+    position: absolute;
+    top: 15.5vh;
     float: left;
     padding: 10px;
     margin: 10px;
     width: 50px;
-}
+  }
 
-.circle-red:hover {
+  .circle-red:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-orange:hover {
+  .circle-orange:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-yellow:hover {
+  .circle-yellow:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-green:hover {
+  .circle-green:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-blue:hover {
+  .circle-blue:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-purple:hover {
+  .circle-purple:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-indigo:hover {
+  .circle-indigo:hover {
     border: solid;
     border-color: black;
-}
+  }
 
-.circle-red {
-    vertical-align: auto;
-    height: 45px;
-    width: 45px;
+  .circle-red {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: rgb(405, 105, 97);
-    border-style: none;
-}
+    background-color: #ff6961;
+  }
 
-.circle-orange {
-    height: 45px;
-    width: 45px;
+  .circle-orange {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: rgb(405, 201, 140);
-    border-style: none;
-}
+    background-color: #ffc98c;
+  }
 
-.circle-yellow {
-    height: 45px;
-    width: 45px;
+  .circle-yellow {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: rgb(403, 403, 150);
-}
+    background-color: #ffff96;
+  }
 
-.circle-green {
-    height: 45px;
-    width: 45px;
+  .circle-green {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: #90EE90;
-}
+    background-color: #90ee90;
+  }
 
-.circle-blue {
-    height: 45px;
-    width: 45px;
+  .circle-blue {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: #ADD8E6;
-}
+    background-color: #add8e6;
+  }
 
-.circle-indigo {
-    height: 45px;
-    width: 45px;
+  .circle-indigo {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: #A2ABE7;
-}
+    background-color: #a2abe7;
+  }
 
-.circle-purple {
-    height: 45px;
-    width: 45px;
+  .circle-purple {
+    height: 5vw;
+    width: 5vw;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
     margin-bottom: auto;
-    background-color: #B19CD9;
+    background-color: #b19cd9;
+  }
 }
