@@ -8,12 +8,12 @@ This project was made in collaboration with [Farhan](https://github.com/fofsfofs
 [digitrecog.online](http://digitrecog.online)
 
 <p align="center">
-  <img src="readme/model.gif">
+  <img src="reactapp/public/readme/model.gif">
 </p>
 
 ## Training Statistics
 After training the model we found a satisfactory accuracy of the tested data and saved this model so that it can be used in the project.
 <p float="left">
-  <img src="/readme/matrix.png" width="350" height="350" />
-  <img src="/readme/accuracy.png" width= "500" height="350"/>
+  <img src="reactapp/public//readme/matrix.png" width="350" height="350" />
+  <img src="reactapp/public//readme/accuracy.png" width= "500" height="350"/>
 </p?
